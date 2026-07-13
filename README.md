@@ -1,74 +1,75 @@
 # pathSQE
 
-The pathSQE software automates the analysis of single-crystal inelastic neutron scattering datasets collected with time-of-flight instruments. It integrates with Mantid's python API and enables systematic slicing, symmetrization, and visualization of data in reciprocal space, facilitating the exploration of large wavevector–energy volumes and comparisons with theoretical predictions.
+The **pathSQE** software automates the analysis of single-crystal inelastic neutron scattering datasets collected with time-of-flight instruments. It integrates with Mantid's python API and enables systematic slicing, symmetrization, and visualization of data in reciprocal space, facilitating the exploration of large wavevector–energy volumes and comparisons with theoretical predictions.
 
 ## Getting Started
 
-### 0. Detailed description
+### 0. Documentation
 
-A detailed description of the capabilities and implementation of pathSQE can be found in the paper. Link and file. 
+A detailed description of the implementation and usage of **pathSQE** is available in the associated publication:
+
+https://doi.org/10.1107/S1600576725011112
+
+A PDF reprint is also included in this repository:
+
+`examples/paper_reprint_pathSQE.pdf`
+
+---
 
 ### 1. Clone the repository
 
-On any system with Git installed:
+On any system with Git installed, clone the repository:
 
 ```bash
 git clone https://github.com/delaire-lab-duke/pathSQE.git
 ```
 
-Alternatively, one can download and transfer the repository as a ZIP file.
+Alternatively, download the repository as a ZIP archive.
 
 ---
 
 ### 2. Set up the environment
 
-The software requires relatively few packages to run. Basic environmental setup instructions using Pixi or Conda are provided below.
+The software has relatively few dependencies. Environment setup instructions using either Pixi or Conda are provided below.
 
-#### Pixi (suggested)
+#### Pixi (recommended)
 
-If Pixi is installed system-wide, as is the case on the ORNL SNS analysis cluster, one can effectively skip this step since the pixi.toml file is provided. Running the code using the pixi run command (in step 5) automatically prepares and uses the correct python environment.
+If Pixi is installed (for example, on the ORNL SNS analysis cluster), no additional setup is required. The included `pixi.toml` file defines the required environment, which is created automatically when running the workflow with `pixi run` (Step 5).
 
 #### Conda
-For full functionality including phonon simulations, create a conda environment:
+
+To create a Conda environment with full functionality, including phonon simulations:
 
 ```bash
 conda create -n pathSQE -c conda-forge -c mantid mantid phonopy
 conda activate pathSQE
 ```
 
-For experimental data analysis (no simulations required):
-
-```bash
-conda create -n mantid -c mantid mantid
-conda activate mantid
-```
-
-
 ---
 
 ### 3. Specify your dataset
 
-Edit `define_data.py` to point to the target experimental data.
+Edit `define_data.py` to point to your experimental dataset.
 
-If run as-is on the ORNL SNS analysis cluster, the provided version works out-of-the-box with a publicly available single-crystal Si dataset measured at 300 K on ARCS at the SNS.
+On the ORNL SNS analysis cluster, the default configuration works out of the box with a publicly available single-crystal Si dataset measured at 300 K on ARCS.
 
 ---
 
-### 4. Set analysis parameters
+### 4. Configure the analysis
 
-Edit `pathSQE_input.py` to configure the desired slicing paths, symmetry settings, and output options.
+Edit `pathSQE_input.py` to define the desired slicing paths, symmetry operations, and output options.
 
 ---
 
 ### 5. Run the workflow
 
-From a terminal, run:
+Using Pixi:
 
 ```bash
 pixi run python pathSQE_driver.py
 ```
 
-Or if using conda, with the environment active run:
+Using Conda (with the environment activated):
 
 ```bash
 python pathSQE_driver.py
@@ -78,15 +79,15 @@ python pathSQE_driver.py
 
 ## Example Output
 
-An example of a symmetrized, folded \( I(\mathbf{q}, E) \) from the publicly available Si dataset at 300 K:
+Example of a symmetrized and folded \(I(\mathbf{q}, E)\) map generated from the publicly available 300 K Si dataset:
 
-![Example 300K Si folded I(Q,E)](examples/Si_ARCS_publicData/folded_path_plot_106.png)
+![Example 300 K Si folded I(Q,E)](examples/Si_ARCS_publicData/folded_path_plot_106.png)
 
 ---
 
-## Citing pathSQE
+## Citation
 
-If you use pathSQE in your research, please cite the following:
+If you use **pathSQE** in published research, please cite:
 
 ### BibTeX
 
