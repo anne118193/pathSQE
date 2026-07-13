@@ -79,9 +79,11 @@ python pathSQE_driver.py
 
 ## Example Output
 
-Example of a symmetrized and folded \(I(\mathbf{q}, E)\) map generated from the publicly available 300 K Si dataset:
+Example of a symmetrized and folded I(q,E) map generated from the publicly available 300 K Si dataset:
 
 ![Example 300 K Si folded I(Q,E)](examples/Si_ARCS_publicData/folded_path_plot_106.png)
+
+The `examples/` directory also includes the input files used to generate the figures presented in the associated publication along with their representative output files.
 
 ---
 
