@@ -1,0 +1,12 @@
+[workspace]
+authors = ["ajsable <aiden.sable@duke.edu>"]
+channels = ["conda-forge", "mantid"]
+name = "pathSQE"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+mantid = "*"
+phonopy = "*"

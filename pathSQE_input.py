@@ -12,7 +12,7 @@ def define_pathSQE_params(**kwargs):
     'sample':'Si', # separate elements with spaces; don't include stoichiometric subscripts, e.g. for Sr3As2, do 'Sr As'; if desired, some specific isotopes can be specified, e.g. instead of 'Fe Si', could do '56Fe 28Si'
     'space group':'Fd-3m', # don't worry about spaces
     'T and Ei conditions':[(300,80)], # (Temperature, Indicent energy) for each dataset in a list. MDEs must follow consistent naming scheme you specify in define_data.py
-    'use seeKpath path':False, # need to fix, POSCAR required
+    'use seeKpath path':True, # POSCAR required
     'user defined Qpoints':{'path':[ ('Gamma', 'X'), ('X', 'U'), ('K', 'Gamma'), ('Gamma', 'L'), ('L', 'W'), ('W', 'X') ], # e.g. [ ('X', 'U'), ('K', 'Gamma') ], total piece-wise path along which to process 2D inelastic slices, names must match strings in 'point_coords'
                             '1d_points':['K', 'L'], # e.g. ['Gamma', 'X'], all 1d points at which to make 1d S(E) cuts, names must match strings in 'point_coords'
                             'point_coords':{ 'Gamma': [0.0, 0.0, 0.0], 'X': [0, 1, 0], 'L': [0.5, 0.5, 0.5], 'W': [0.5, 1, 0], 'K': [0.75, 0.75, 0], 'U': [0.25, 1, 0.25] }}, # Q point definitions in Q basis associated with MDE's UB matrix
