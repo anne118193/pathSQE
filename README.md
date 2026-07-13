@@ -95,12 +95,16 @@ If you use **pathSQE** in published research, please cite:
 
 ```bibtex
 @article{sable2026pathsqe,
-  title={pathSQE: an automated workflow for single-crystal inelastic neutron scattering data processing and analysis},
-  author={Sable, Aiden and Savici, Andrei T and Linjawi, Bander and Delaire, Olivier},
-  journal={Applied Crystallography},
-  volume={59},
-  number={1},
-  year={2026},
-  publisher={International Union of Crystallography}
+author = "Sable, Aiden and Savici, Andrei T. and Linjawi, Bander and Delaire, Olivier",
+title = "{{\it pathSQE}: an automated workflow for single-crystal inelastic neutron scattering data processing and analysis}",
+journal = "Journal of Applied Crystallography",
+year = "2026",
+volume = "59",
+number = "1",
+pages = "248--262",
+month = "Feb",
+doi = {10.1107/S1600576725011112},
+url = {https://doi.org/10.1107/S1600576725011112},
+keywords = {inelastic neutron scattering, phonons, magnons, high-throughput data analysis, data visualization},
 }
 ```
