@@ -233,11 +233,13 @@ def find_qbins(pathSQE_params, qdim0, qdim1, qdim2, pt1, pt2, BZ_offset):
 
 
 
-def choose_dims_and_bins(pathSQE_params, point1, point2, u, v, BZ_offset=np.array([0,0,0])):
+def choose_dims_and_bins(pathSQE_params, point1, point2, u, v, BZ_offset=np.array([0,0,0]), scale=None):
     diff = point2 - point1
 
     # calculating default QDimension0 axis direction and scaling
-    qdim0 = diff / np.max(np.absolute(diff))
+    if scale is None:
+        scale = np.max(np.absolute(diff))
+    qdim0 = diff / scale
 
     # determine the directions of qdim1 and qdim2
     qdim1, qdim2 = find_qdim_1and2(qdim0, u, v)
