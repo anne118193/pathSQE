@@ -21,7 +21,7 @@ A PDF reprint is also included in this repository:
 On any system with Git installed, clone the repository:
 
 ```bash
-git clone https://github.com/delaire-lab-duke/pathSQE.git
+git clone https://github.com/anne118193/pathSQE.git
 ```
 
 Alternatively, download the repository as a ZIP archive.
