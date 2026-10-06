@@ -2,6 +2,8 @@
 
 The **pathSQE** software automates the analysis of single-crystal inelastic neutron scattering datasets collected with time-of-flight instruments. It integrates with Mantid's python API and enables systematic slicing, symmetrization, and visualization of data in reciprocal space, facilitating the exploration of large wavevector–energy volumes and comparisons with theoretical predictions.
 
+There were some dimension issues for some of the math so I modified the code. Maybe I have some incorrect inputs and I didn't need to modify the code to make it work but ... its fine ... I think ...
+
 ## Getting Started
 
 ### 0. Documentation
