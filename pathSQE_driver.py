@@ -195,12 +195,15 @@ def run_pathSQE(pathSQE_params, mde_data):
                 print("\n{} symmetrically equivalent path segments".format(pt1_array.shape[0]))
                 print(np.hstack((pt1_array,pt2_array)))
 
+                pt1_array, pt2_array = pathSQE_core.generate_unique_paths(mtd_spacegroup, pt1_init, pt2_init, pathSQE_params)
+                seg_scale = np.max(np.absolute(pt2_init - pt1_init))   # same for every j and every BZ
+                
                 all_sliceInfo_for_pathSeg = []
                 good_slice_index = None
                 for j in range(pt1_array.shape[0]):
-                    q_dims_and_bins = pathSQE_core.choose_dims_and_bins(pathSQE_params, pt1_array[j], pt2_array[j],  pathSQE_params['u_vec'], pathSQE_params['v_vec'], BZ_offset=BZ_offset)
+                    q_dims_and_bins = pathSQE_core.choose_dims_and_bins( pathSQE_params, pt1_array[j], pt2_array[j], pathSQE_params['u_vec'], pathSQE_params['v_vec'], BZ_offset=BZ_offset, scale=seg_scale)
                     slice_desc = pathSQE_helper.make_slice_desc(pathSQE_params, q_dims_and_bins, pt1_array[j], pt2_array[j], path_seg)
-                                    
+                    
                     # make slice and evaluate quality based on filters
                     slice_utils_07142023.make_slice(mde_data[0], slice_desc, ASCII_slice_folder='', MD_slice_folder='')
                     if pathSQE_params['save individual slices']:
