@@ -382,6 +382,9 @@ def run_pathSQE(pathSQE_params, mde_data):
         num_processed_slices = 0
         last_update_step = 0
 
+        # Anne Update
+        # if you set 'use seeKpath path':True in the pathSQE_input.py file this part wont compile properly (manually define it for your system)
+        user_defined_Qpoints['1d_points'] = ['K', 'M', 'L', 'A']
         for i in range(len(user_defined_Qpoints['1d_points'])):
             symPt_slice_names_allTemp = [[] for _ in range(len(mde_data))]
             symPt_slice_arrays = []
