@@ -842,7 +842,11 @@ def set_seg_xlabels_rerun(seg_axis, full_path, i):
         curr_end = full_path[i][1]
         
         pt_names = [prev_end, curr_start, curr_end]
-        labels = [pt if len(pt) == 1 else '\\' + pt for pt in pt_names]
+        # Anne Update
+        # theres some issue with the math text, your plot will say GAMMA instead of the math text gamma but at least it will compile
+        # maybe one day ill fix it but i just want it to run right now
+        #labels = [pt if len(pt) == 1 else '\\' + pt for pt in pt_names]
+        labels = [pt if len(pt) == 1 else '' + pt for pt in pt_names]
         
         if curr_start == prev_end:
             seg_axis.set_xticklabels([r'${}$'.format(labels[1]), r'${}$'.format(labels[2])])
@@ -853,7 +857,8 @@ def set_seg_xlabels_rerun(seg_axis, full_path, i):
         curr_start = full_path[i][0]
         
         pt_names = [curr_start]
-        labels = [pt if len(pt) == 1 else '\\' + pt for pt in pt_names]
+        #labels = [pt if len(pt) == 1 else '\\' + pt for pt in pt_names]
+        labels = [pt if len(pt) == 1 else '' + pt for pt in pt_names]
         seg_axis.set_xticklabels([r'${}$'.format(labels[0]),''])
         
     else:
@@ -861,7 +866,8 @@ def set_seg_xlabels_rerun(seg_axis, full_path, i):
         curr_start = full_path[i][0]
         
         pt_names = [prev_end, curr_start]
-        labels = [pt if len(pt) == 1 else '\\' + pt for pt in pt_names]
+        #labels = [pt if len(pt) == 1 else '\\' + pt for pt in pt_names]
+        labels = [pt if len(pt) == 1 else '' + pt for pt in pt_names]
         
         if curr_start == prev_end:
             seg_axis.set_xticklabels([r'${}$'.format(labels[1]),''])
